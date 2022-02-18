@@ -14,11 +14,9 @@ pytorch, pretty_midi, midi2audio, pyfluidsynth
 
 ## Generation
 
-To generate random Bach chorales in a length of 8 bars, simply clone the repo and run
+To generate random Bach chorales in a length of 8 bars, simply clone the repo and run `python generate.py`.
 
-```
-python generate.py
-```
+The pre-trained network is trained using batch size of 64 and 50000 steps of updates.
 
 ## Train
 
