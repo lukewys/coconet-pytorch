@@ -8,6 +8,13 @@ The code in this repo is modified
 from [kevindonoghue's implementation](https://github.com/kevindonoghue/coconet-pytorch)
 by [Yusong Wu](https://github.com/lukewys) and [Kyle Kastner](https://github.com/kastnerkyle).
 
+Although the code is modified to reproduce the original paper, the loss in here is just plain cross-entropy between
+input and output. In the original paper (eq.3)
+and [original implementation](https://github.com/magenta/magenta/blob/188bbf922aa36bc437ae45e99b2e5803074677dc/magenta/models/coconet/lib_graph.py#L190)
+, the loss is not counted for back-propagation where input is not masked (because the objective would be simply to copy
+input to the output), and the loss is scaled by 1/(T-num_unmasked+1). In this implementation we found the un-scaled loss
+still produce decent output.
+
 ## Requirements
 
 pytorch, pretty_midi, midi2audio, pyfluidsynth
